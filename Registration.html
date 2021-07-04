@@ -39,9 +39,24 @@
            
         }
     </style>
-
-     <script>
-
+    
+     <script type="text/javascript">
+        function sendEmail(){
+            Email.send({
+                Host: "gmail.com"
+    
+                Password: "753951024034@",
+                To: 'receiver@email_address.com',
+                From: "sender@emal_address.com",
+                Subject: "Sending Email"
+             
+                
+            
+            })
+            .then(function(message){
+                alert("Mail has been sent successfully")
+            });
+        }
     </script>
 
 
@@ -62,11 +77,14 @@
      <form action='/blank'>
         <div>
             <div style="text-align: center;">
+                <form method="post">
+                    <input
+                    style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
+                    type='email' placeholder="Email address"/>
+                    <input type="button" value="validate" onclick="sendMail()"
+                </form>
                 
-                <input
-                style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
-                type='email' placeholder="Email address"/>
-                <a href='#'> validate </a>
+                
             </div>
 
             <div style="text-align: center; margin-top: 1rem;">
