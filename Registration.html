@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        .separator {
+            width: 30rem;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #000;
+        }
+
+        .separator:not(:empty)::before {
+            margin-right: .25em;
+        }
+
+        .separator:not(:empty)::after {
+            margin-left: .25em;
+        }
+        #border{
+            max-width: 80vw;
+            min-width: 30rem;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px grey solid;
+           
+        }
+    </style>
+
+     <script>
+         
+    </script>
+
+
+</head>
+
+<body>
+    <h1 style="color:red; font-size: 5rem; text-align: center;">Seneca</h1>
+    <div id="border">
+        <div>
+            <p style="text-align: center;">
+                Sign up with <a href="https://www.facebook.com" target="_blank"/>Facebook</a>or <a href="https://www.google.com" target="_blank"/>Google</a>
+            </p>
+        </div>
+
+        <div>
+            <div class="separator">or</div>
+        </div>
+     <form action='/blank'>
+        <div>
+            <div style="text-align: center;">
+                <form action="fangzhouli906@gmail.com" method="post" enctype="text/plain">
+                    <input
+                    style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
+                    type='email' placeholder="Email address"/>
+                    <input type="submit" value="Send">
+
+                </form>
+               
+            </div>
+
+            <div style="text-align: center; margin-top: 1rem;">
+                <input
+                    style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
+                    type='text' placeholder="First name" />
+            </div>
+
+            <div style="text-align: center; margin-top: 1rem;">
+                <input
+                    style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
+                    type='text' placeholder="Last name" />
+            </div>
+
+            <div style="text-align: center; margin-top: 1rem;">
+                <input
+                    style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
+                    type='password' placeholder="Create a Password" />
+                <i class="fa fa-eye" onclick="showhide()" id="eye"></i>
+                <script type="text/javascript">
+                    var eye = document.getElementById("eye");
+                    var pwd = document.getElementById("pwd");
+
+                    function showhide() {
+
+                        if (pwd.type == "password") {
+                            pwd.type = "text";
+                            eye.className = 'fa fa-eye-slash'
+                        } else {
+                            pwd.type = "password";
+                            eye.className = 'fa fa-eye'
+                        }
+                    }
+                </script>
+               
+            </div>
+
+            <div>
+                <p style="width: 30rem; margin-left: auto; margin-right:auto">
+                    Birthday
+                </p>
+            </div>
+
+            <div style="width: 30rem; margin-left: auto; margin-right:auto">
+                <p style="width:300px; font-size: 0.5rem; line-height:2px;">
+                <p style=" font-size:0.5rem;">To sign up, you need to be at least 18.Other people who
+                    use Airbnb won't see</p>
+                <p style= "font-size:0.5rem;">your birthday.</p>
+                </p>
+            </div>
+
+            <div style="width: 30rem; margin-left:auto; margin-right:auto;">
+                <select id="Month" style="width:12rem; padding:0.45rem;">
+                    <option>
+                        Month
+                    </option>
+                </select>
+                <select id="Day" style="width:6.5rem; padding:0.45rem;">
+                    <option>
+                        Day
+                    </option>
+                </select>
+                <select id="Year" style="width:8.5rem; padding:0.45rem;">
+                    <option>
+                        Year
+                    </option>
+                </select>
+
+            </div>
+
+            <div style="width: 30rem; margin-left: auto; margin-right:auto">
+                <p>
+                <p style="font-size:0.5rem;">We'll send you marketing promotions,special
+                    offers,inspiration,and policy</p>
+                <p style="font-size:0.5rem;">updates via email.</p>
+                </p>
+            </div>
+
+
+
+            <button style="padding: 1rem 2rem 1rem 2rem; background-color: red; color: white; border: 8px;  margin-left: 17rem;border-radius: 0.5rem; width:33rem; text-align:center;">
+                
+                Sign up
+            </button>
+
+
+
+
+
+
+        </div>
+
+    </div>
+</form>
+</body>
+<script>
+       
+
+        const MonthSelect = document.getElementById('Month');
+        for(let i = 1; i < 13; i++){
+            const option = document.createElement('option');
+            const text = document.createTextNode(i + '');
+            option.appendChild(text);
+            MonthSelect.appendChild(option);
+        }
+        const DaySelect = document.getElementById('Day');
+        for(let i = 1; i < 32; i++){
+            const option = document.createElement('option');
+            const text = document.createTextNode(i + '');
+            option.appendChild(text);
+            DaySelect.appendChild(option);
+        }
+
+        const yearSelect = document.getElementById('Year');
+        for(let i = 1900; i < 2022; i++){
+            const option = document.createElement('option');
+            const text = document.createTextNode(i + '');
+            option.appendChild(text);
+            YearSelect.appendChild(option);
+        }
+    
+       
+</script>
+</html>
