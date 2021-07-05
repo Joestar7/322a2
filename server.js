@@ -6,13 +6,7 @@ const port = 80
 app.use(express.static('public')); 
 
 
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'fangzhouli906@gmail.com',
-      pass: '753951024034@'
-    }
-  });
+
   
 
 function rootPath1 (req, res){
@@ -38,6 +32,15 @@ function R (req, res){
     let fileName = __dirname + '/blank.html';
     res.sendFile(fileName);
 }
+
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'fangzhouli906@gmail.com',
+    pass: '753951024034@'
+  }
+});
 
 function sendEmail(req,res){
     let email = req.params.mailaddress;
