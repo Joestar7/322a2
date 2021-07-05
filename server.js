@@ -1,7 +1,7 @@
 const express = require('express')
 const nodemailer = require('nodemailer');
 const app = express()
-const port = process.env.PORT | 80
+const port = process.env.port || 80
 
 app.use(express.static('public')); 
 
