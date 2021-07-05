@@ -39,23 +39,34 @@
            
         }
     </style>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
-        function ValidateEmail(inputText)
-{var mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-alert("You have entered a valid email address!");    
-document.form1.text1.focus();
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");    
-document.form1.text1.focus();
-return false;
-}
-}
+        function ValidatePW()
+        {
+            let pwele = document.getElementById("password");
+            let pw = pwele.value;
+            let regex = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
+            return regex.test(pw);
+        }
+        function sendEmail2(){
+            let prefix = "/sendemail/";
+            let emailele = document.getElementById("email");
+
+            let url = prefix + emailele.value;
+            axios.get(url).then(()=>{
+                console.log("Email sent");
+            }).catch(err=>{
+                console.log("Email not sent");
+            })
+        }
+        function handleSumbit(){
+            if(ValidatePW()){
+                sendEmail2();
+                return true;
+            }
+            alert("Password need at least 1 upper case one lower case 1 special symbol 1 digit number and min 8 characters")
+            return false;
+        }
     </script>
   
 
@@ -76,17 +87,13 @@ return false;
         <div>
             <div class="separator">or</div>
         </div>
-     <form action='/blank'>
+     <form action="/blank"  onsubmit="return handleSumbit()">
         <div>
             <div style="text-align: center;">
                 
-                    <input
+                    <input id='email'
                     style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
-                    type='email' placeholder="Email address"/>
-                    <a href="#" onclick="ValidateEmail(inputText)">validate</a>
-              
-                
-                
+                    type='email' placeholder="Email address"/>    
             </div>
 
             <div style="text-align: center; margin-top: 1rem;">
@@ -102,7 +109,7 @@ return false;
             </div>
 
             <div style="text-align: center; margin-top: 1rem;">
-                <input
+                <input id="password"
                     style="border:1px grey solid; border-radius: 3px; font-size: 1rem; width: 30rem; padding: 0.7rem;"
                     type='password' placeholder="Create a Password" />
 
